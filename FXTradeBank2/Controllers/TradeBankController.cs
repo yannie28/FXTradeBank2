@@ -17,27 +17,26 @@ namespace FXTradeBank2.Controllers
         public IEnumerable<TradeBankModel> Get()
         {
             List<TradeBankModel> offer = new List<TradeBankModel>();
-
-            offer.Add(new TradeBankModel()
+            TradeBankModel offer1 = new TradeBankModel()
             {
                 Id = "1",
                 SourceCurrency = "SGD",
                 DestinationCurrency = "USD",
                 Amount = 1000,
                 Status = "Successful"
-            }
-            );
+            };
 
-            offer.Add(new TradeBankModel()
+            TradeBankModel offer2 = new TradeBankModel()
             {
                 Id = "2",
                 SourceCurrency = "SGD",
                 DestinationCurrency = "GBP",
                 Amount = 2000,
                 Status = "Failed"
-            }
-            );
+            };
 
+            offer.Add(offer1);
+            offer.Add(offer2);
             return offer;
         }
 

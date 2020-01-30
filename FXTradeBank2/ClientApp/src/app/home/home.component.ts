@@ -5,19 +5,27 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-home',
   templateUrl: './home.component.html',
 })
-export class HomeComponent {
-  TradeBank: TradeBank2[] = [];
+export class HomeComponent{
+  TradeBank: TradeBank[] = [];
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseURL: string) {
-    http.get<TradeBank2[]>(baseURL + 'api/TradeBank').subscribe(
+  constructor(private http: HttpClient,@Inject('BASE_URL') baseURL: string) {
+    http.get<TradeBank[]>(baseURL + 'api/TradeBank').subscribe(
+      data => { this.TradeBank = data },
+      error => console.error(error)
+    );
+
+  }
+
+  public setAdjustedPPU(adjustedPPU: string, @Inject('BASE_URL') baseURL: string) {
+    this.http.set<TradeBank[]>(baseURL + 'api/TradeBank').subscribe(
       data => { this.TradeBank = data },
       error => console.error(error)
     );
   }
-
+  
 }
 
-interface TradeBank2 {
+interface TradeBank {
   id: string;
   sourceCurrency: string;
   destinationCurrency: string;
