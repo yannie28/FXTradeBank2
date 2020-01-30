@@ -17,12 +17,20 @@ export class HomeComponent{
   }
 
   public setAdjustedPPU(adjustedPPU: string, @Inject('BASE_URL') baseURL: string) {
-    console.log(baseURL);
-    this.http.post('/api/Adjustment', adjustedPPU).subscribe(
+    console.log(baseURL)
+    this.http.post('api/Adjustment', adjustedPPU).subscribe(
       data => { console.log(data) },
       error => console.error(error)
     );
   }
+
+  /*public setAdjustedPPU(adjustedPPU: string, @Inject('BASE_URL') baseURL: string) {
+  console.log(baseURL);
+  this.http.get('https://localhost:5001/api/v1/tradebank/tradehistory').subscribe(
+    data => { console.log(data) },
+    error => console.error(error)
+  );
+  }*/
   
 }
 
