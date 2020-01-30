@@ -17,8 +17,9 @@ export class HomeComponent{
   }
 
   public setAdjustedPPU(adjustedPPU: string, @Inject('BASE_URL') baseURL: string) {
-    this.http.set<TradeBank[]>(baseURL + 'api/TradeBank').subscribe(
-      data => { this.TradeBank = data },
+    console.log(baseURL);
+    this.http.post('/api/Adjustment', adjustedPPU).subscribe(
+      data => { console.log(data) },
       error => console.error(error)
     );
   }

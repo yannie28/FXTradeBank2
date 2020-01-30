@@ -28,9 +28,10 @@ namespace FXTradeBank2.Controllers
 
         // POST: api/Adjustment
         [HttpPost]
-        public void Post([FromBody] int value)
+        public string Post(int value)
         {
             minPPU = value;
+            return "success";
         }
 
         // PUT: api/Adjustment/5
