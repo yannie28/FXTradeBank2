@@ -1,20 +1,22 @@
 <!--<app-fetch-data></app-fetch-data>-->
 
-<label for="city">Adjusted Price Per Unit: </label>
-<input type="text" id="adjustedPPU" [(ngModel)]="adjustedPPU" required/>
+<label for="city">Minimum Accepted PPU: </label>
+<input type="text" id="adjustedPPU" [(ngModel)]="adjustedPPU"/>
 <input type="button" value="Submit" (click)="setAdjustedPPU(adjustedPPU)" />
+
 <h1>Trade History</h1>
 <table>
   <thead>
     <tr>
       <th>ID</th>
-      <th>Source Currency</th>
-      <th>Destination Currency</th>
-      <th>Amount Currency</th>
-      <th>Status</th>
+      <th>Payment Currency</th>
+      <th>Requested Currency</th>
+      <th>Requested Amount</th>
+      <th>PPU</th>
+      <th>Trade Status</th>
     </tr>
   </thead>
-  <tbody>
+  <!--<tbody>
     <tr *ngFor="let record of TradeBank">
       <td>{{record.id}}</td>
       <td>{{record.sourceCurrency}}</td>
@@ -22,5 +24,14 @@
       <td>{{record.amount}}</td>
       <td>{{record.status}}</td>
     </tr>
-  </tbody>
+  </tbody>-->
+    <tr *ngFor="let record of TradeBank">
+      <td>{{record.trade_id}}</td>
+      <td>{{record.payment_currency}}</td>p
+      <td>{{record.requested_currency}}</td>
+      <td>{{record.requested_amount}}</td>
+      <td>{{record.ppu}}</td>
+      <td>{{record.trade_status}}</td>
+    </tr>
+
 </table>
